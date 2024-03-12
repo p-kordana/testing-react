@@ -143,95 +143,28 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-// destructuring
+// array map
 
-const book = getBook(3);
-book;
+const books = getBooks();
 
-const { title, genres, author, pages, publicationDate, hasMovieAdaptation } =
-  book;
+const x = [1, 2, 3, 4, 5, 6];
+x;
+const x2 = x.map((el) => el * 2);
+console.log(x2);
 
-// rest and spread operators
-
-const [priGenre, secGenre, ...otherGenres] = genres;
-
-console.log(priGenre, secGenre, otherGenres);
-
-const newGenres = [...genres, "epic fantasy"];
-newGenres;
-
-const updatedBook = {
-  ...book,
-  //adding new property
-  moviePublicationDate: "2001-12-19",
-  //overwriting existing property
-  pages: 1210,
-};
-updatedBook;
-
-// template literals
-
-const summary = `A ${pages} page (${
-  pages > 1000 ? "biggun" : "littleun"
-}) book ${title} by ${author} was published in ${
-  publicationDate.split("-")[0]
-}. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
-summary;
-
-// ternaries instead of if/else
-// var ? true result: false result;
-
-const size = pages > 1000 ? "biggun" : "littleun";
-size;
-
-// arrow functions
-
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
-
-const getYear = (str) => str.split("-")[0];
-
-console.log(getYear(publicationDate));
-
-const summary2 = `A ${pages} page (${
-  pages > 1000 ? "biggun" : "littleun"
-}) book ${title} by ${author} was published in ${getYear(
-  publicationDate
-)}. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
-summary2;
-
-// short circuiting
-
-// and
-console.log(true && "some text");
-console.log(false && "some text");
-console.log(hasMovieAdaptation && "This book has a movie");
-console.log(!hasMovieAdaptation && "This book has a movie");
-
-// falsy values: 0, '', null, undefined
-console.log(0 && "some text");
-
-// or
-console.log(true || "some text");
-console.log(false || "some text");
-
-console.log(0 || "some text");
-console.log(0 || "");
-
-console.log(book.translations.spanish || "Not Translated");
-
-console.log(book.reviews.librarything?.reviewsCount || "no data");
-// nullish coalescing operator
-console.log(book.reviews.librarything?.reviewsCount ?? "no data");
-
-// optional chaining
+const titles = books.map((el) => el.title);
+titles;
 
 function getTotalReviewCount(b) {
-  const goodReads = book.reviews.goodreads?.reviewsCount || 0;
-  const libraryThing = book.reviews.librarything?.reviewsCount || 0;
+  const goodReads = b.reviews.goodreads?.reviewsCount || 0;
+  const libraryThing = b.reviews.librarything?.reviewsCount || 0;
 
   return goodReads + libraryThing;
 }
 
-console.log(getTotalReviewCount(book));
+const bookSummaries = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsTotal: getTotalReviewCount(book),
+}));
+bookSummaries;
