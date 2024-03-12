@@ -200,3 +200,27 @@ const summary2 = `A ${pages} page (${
   publicationDate
 )}. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
 summary2;
+
+// short circuiting
+
+// and
+console.log(true && "some text");
+console.log(false && "some text");
+console.log(hasMovieAdaptation && "This book has a movie");
+console.log(!hasMovieAdaptation && "This book has a movie");
+
+// falsy values: 0, '', null, undefined
+console.log(0 && "some text");
+
+// or
+console.log(true || "some text");
+console.log(false || "some text");
+
+console.log(0 || "some text");
+console.log(0 || "");
+
+console.log(book.translations.spanish || "Not Translated");
+
+console.log(book.reviews.librarything?.reviewsCount || "no data");
+// nullish coalescing operator
+console.log(book.reviews.librarything?.reviewsCount ?? "no data");
