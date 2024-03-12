@@ -183,3 +183,20 @@ summary;
 
 const size = pages > 1000 ? "biggun" : "littleun";
 size;
+
+// arrow functions
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+const getYear = (str) => str.split("-")[0];
+
+console.log(getYear(publicationDate));
+
+const summary2 = `A ${pages} page (${
+  pages > 1000 ? "biggun" : "littleun"
+}) book ${title} by ${author} was published in ${getYear(
+  publicationDate
+)}. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
+summary2;
