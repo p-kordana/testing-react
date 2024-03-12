@@ -186,3 +186,13 @@ const adventure = books
     author: b.author,
   }));
 adventure;
+
+// array reduce
+
+const totalPages = books.reduce((n, book) => n + book.pages, 0);
+totalPages;
+
+const bigBookCount = books
+  .filter((b) => b.pages > 999)
+  .reduce((n, book) => n + 1, 0);
+bigBookCount;
