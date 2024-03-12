@@ -168,3 +168,12 @@ const updatedBook = {
   pages: 1210,
 };
 updatedBook;
+
+// template literals
+
+const summary = `A ${pages} page (${
+  pages > 1000 ? "biggun" : "littleun"
+}) book ${title} by ${author} was published in ${
+  publicationDate.split("-")[0]
+}. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
+summary;
