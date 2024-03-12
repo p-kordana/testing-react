@@ -150,3 +150,21 @@ book;
 
 const { title, genres, author, pages, publicationDate, hasMovieAdaptation } =
   book;
+
+// rest and spread operators
+
+const [priGenre, secGenre, ...otherGenres] = genres;
+
+console.log(priGenre, secGenre, otherGenres);
+
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+const updatedBook = {
+  ...book,
+  //adding new property
+  moviePublicationDate: "2001-12-19",
+  //overwriting existing property
+  pages: 1210,
+};
+updatedBook;
