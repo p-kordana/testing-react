@@ -177,3 +177,9 @@ const summary = `A ${pages} page (${
   publicationDate.split("-")[0]
 }. There is ${hasMovieAdaptation ? "" : "not "}a movie.`;
 summary;
+
+// ternaries instead of if/else
+// var ? true result: false result;
+
+const size = pages > 1000 ? "biggun" : "littleun";
+size;
