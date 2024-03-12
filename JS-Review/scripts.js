@@ -168,3 +168,21 @@ const bookSummaries = books.map((book) => ({
   reviewsTotal: getTotalReviewCount(book),
 }));
 bookSummaries;
+
+// array filter
+
+const bigguns = books.filter((b) => b.pages > 999);
+bigguns;
+
+const popular = books
+  .filter((b) => b.pages > 500)
+  .filter((b) => getTotalReviewCount(b) > 35000);
+popular;
+
+const adventure = books
+  .filter((b) => b.genres.includes("adventure"))
+  .map((b) => ({
+    title: b.title,
+    author: b.author,
+  }));
+adventure;
