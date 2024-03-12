@@ -134,3 +134,19 @@ const data = [
     },
   },
 ];
+
+function getBooks() {
+  return data;
+}
+
+function getBook(id) {
+  return data.find((d) => d.id === id);
+}
+
+// destructuring
+
+const book = getBook(3);
+book;
+
+const { title, genres, author, pages, publicationDate, hasMovieAdaptation } =
+  book;
