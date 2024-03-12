@@ -224,3 +224,14 @@ console.log(book.translations.spanish || "Not Translated");
 console.log(book.reviews.librarything?.reviewsCount || "no data");
 // nullish coalescing operator
 console.log(book.reviews.librarything?.reviewsCount ?? "no data");
+
+// optional chaining
+
+function getTotalReviewCount(b) {
+  const goodReads = book.reviews.goodreads?.reviewsCount || 0;
+  const libraryThing = book.reviews.librarything?.reviewsCount || 0;
+
+  return goodReads + libraryThing;
+}
+
+console.log(getTotalReviewCount(book));
