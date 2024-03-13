@@ -196,3 +196,16 @@ const bigBookCount = books
   .filter((b) => b.pages > 999)
   .reduce((n, book) => n + 1, 0);
 bigBookCount;
+
+// array sort
+const unsorted = [3, 8, 7, 4, 5, 8, 9, 2];
+const sortedAsc = unsorted.slice().sort((a, b) => a - b);
+sortedAsc;
+const sortedDesc = unsorted.slice().sort((a, b) => b - a);
+sortedDesc;
+
+// use a slice on sorts to retain the original array
+unsorted;
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortedByPages;
